@@ -143,6 +143,29 @@ var wc_cart_fragments_params = {"ajax_url":"\/demosd\/nils\/wp-admin\/admin-ajax
 <![endif]-->
 <!-- < NAVIGATION WITH BACKGROUND COLOR NAVBAR >............................................ -->
 <!-- removed navbar-toggleable-md because responsive issues. Find out why ..... -->
+
+
+	<script>
+  document.querySelectorAll('a[href]').forEach(link => {
+    let href = link.getAttribute('href');
+
+    if (href.includes('index.html')) {
+      let noviHref = href.replace(/index\.html/g, '');
+
+      if (noviHref.startsWith('#')) {
+        link.setAttribute('href', noviHref);
+      } else {
+        if (noviHref === '' || noviHref === '/') {
+          noviHref = '/';
+        }
+        link.setAttribute('href', noviHref);
+      }
+    }
+  });
+</script>
+
+
+	
 <!-- start page-wrapper -->
 <div class="preloader-bg"></div>
   <div id="preloader">
