@@ -22,19 +22,34 @@
     }
 </script>
 
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+  // 1. Ukloni index.html iz URL-a ako postoji (kao ranije)
+  if (window.location.pathname.endsWith('index.html')) {
+    window.history.replaceState(null, '', '/' + window.location.search);
+  }
 
-	<script>
-    if (window.location.pathname.endsWith("#about") || window.location.pathname.endsWith("#services")) {
-        history.replaceState({}, "", "/");
-    }
+  // 2. Ukloni hash iz URL-a odmah ako postoji
+  if (window.location.hash) {
+    window.history.replaceState(null, '', window.location.pathname + window.location.search);
+  }
+
+  // 3. Takođe, presreći klikove na linkove sa hashom i ukloni ih iz URL-a
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault(); // spriječi default prelazak na hash
+      // Skroluj do te sekcije (smooth)
+      const targetId = link.getAttribute('href').substring(1);
+      const target = document.getElementById(targetId);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+      // Ukloni hash iz URL-a
+      window.history.replaceState(null, '', window.location.pathname + window.location.search);
+    });
+  });
+});
 </script>
-
-		<script>
-    if (window.location.pathname.endsWith("#portfolio") || window.location.pathname.endsWith("#contact")) {
-        history.replaceState({}, "", "/");
-    }
-</script>
-
 	
 <script type="text/javascript">
 /* <![CDATA[ */
