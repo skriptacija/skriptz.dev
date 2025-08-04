@@ -16,6 +16,26 @@
   rel="stylesheet"
 />
 
+	<script>
+    if (window.location.pathname.endsWith("index.html") || window.location.pathname.endsWith("login.html")) {
+        history.replaceState({}, "", "/");
+    }
+</script>
+
+
+	<script>
+    if (window.location.pathname.endsWith("#about") || window.location.pathname.endsWith("#services")) {
+        history.replaceState({}, "", "/");
+    }
+</script>
+
+		<script>
+    if (window.location.pathname.endsWith("#portfolio") || window.location.pathname.endsWith("#contact")) {
+        history.replaceState({}, "", "/");
+    }
+</script>
+
+	
 <script type="text/javascript">
 /* <![CDATA[ */
 window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/16.0.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/16.0.1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/shtheme.com\/demosd\/nils\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.8.2"}};
@@ -145,24 +165,7 @@ var wc_cart_fragments_params = {"ajax_url":"\/demosd\/nils\/wp-admin\/admin-ajax
 <!-- removed navbar-toggleable-md because responsive issues. Find out why ..... -->
 
 
-	<script>
-  document.querySelectorAll('a[href]').forEach(link => {
-    let href = link.getAttribute('href');
-
-    if (href.includes('index.html')) {
-      let noviHref = href.replace(/index\.html/g, '');
-
-      if (noviHref.startsWith('#')) {
-        link.setAttribute('href', noviHref);
-      } else {
-        if (noviHref === '' || noviHref === '/') {
-          noviHref = '/';
-        }
-        link.setAttribute('href', noviHref);
-      }
-    }
-  });
-</script>
+	
 
 
 	
